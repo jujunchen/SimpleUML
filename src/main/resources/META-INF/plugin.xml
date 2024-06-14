@@ -1,0 +1,85 @@
+<idea-plugin>
+
+    <name>simpleUMLCE</name>
+    <description>
+        <![CDATA[<html><body>
+		UML Class, Dependency, Package and Sequence diagrams for IDEA Community Edition
+		</body></html>]]>
+    </description>
+
+    <version>1.0-SNAPSHOT</version>
+
+    <vendor email="edunov@gmail.com"
+            logo="/net/trustx/simpleuml/icons/simpleUMLsmall.png">
+        Initial version by: Martin Schmid, Luke Burgess (Luke.E.Burgess@usa.xerox.com), Dimitar Dimitrov
+        Updated to work with IDEA Community Edition by: Sergey Edunov
+    </vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <change-notes><![CDATA[<html>Updated to work with IDEA Community Edition</html>]]>
+    </change-notes>
+
+    <idea-version since-build="8000"/>
+
+    <application-components>
+        <component>
+            <implementation-class>net.trustx.simpleuml.plugin.SUMLFileEditorProvider</implementation-class>
+            <interface-class>net.trustx.simpleuml.plugin.SUMLFileEditorProvider</interface-class>
+            <option name="workspace" value="true"/>
+        </component>
+    </application-components>
+
+    <project-components>
+        <component>
+            <implementation-class>net.trustx.simpleuml.components.DiagramSettingsWorkspace</implementation-class>
+            <interface-class>net.trustx.simpleuml.components.DiagramSettingsWorkspace</interface-class>
+            <option name="workspace" value="true"/>
+        </component>
+
+        <component>
+            <implementation-class>net.trustx.simpleuml.plugin.UMLToolWindowPlugin</implementation-class>
+            <interface-class>net.trustx.simpleuml.plugin.UMLToolWindowPlugin</interface-class>
+            <option name="workspace" value="true"/>
+        </component>
+    </project-components>
+
+    <actions>
+        <action id="Add Call to Sequence Diagram" class="net.trustx.simpleuml.sequencediagram.actions.AddClassToSequenceAction" text="Add Call to Sequence Diagram" description="Add Call to Sequence Diagram">
+            <keyboard-shortcut first-keystroke="alt A" keymap="$default"/>
+        </action>
+        <action id="Add Return to Sequence Diagram" class="net.trustx.simpleuml.sequencediagram.actions.AddReturnOnSequenceAction" text="Add Return to Sequence Diagram" description="Add Return to Sequence Diagram">
+            <keyboard-shortcut first-keystroke="alt R" keymap="$default"/>
+        </action>
+
+        <group id="simpleUML.UMLToolWindow" text="simpleUML">
+            <action id="simpleUML.LoadDiagram" class="net.trustx.simpleuml.plugin.actions.LoadDiagramAction" text="Load Diagram" description="Load Diagram">
+                <keyboard-shortcut first-keystroke="control alt L" keymap="$default"/>
+            </action>
+
+        </group>
+
+        <group id="simpleUML.AddPopupMenu" text="Add to simpleUML Diagram" popup="true">
+            <action id="simpleUML.ViewUMLWindow" class="net.trustx.simpleuml.plugin.actions.ViewUMLWindowAction" text="Add to simpleUML diagram" description="">
+            </action>
+
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <add-to-group group-id="TypeHierarchyPopupMenu" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <add-to-group group-id="CommanderPopupMenu" anchor="last"/>
+
+        </group>
+
+        <group id="simpleUML.GotoPopupMenu" text="Go to simpleUML Diagram" popup="true">
+            <action id="simpleUML.GotoDiagram" class="net.trustx.simpleuml.plugin.actions.GoToDiagramActionGroup" text="Go to simpleUML diagram" description="">
+            </action>
+
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <add-to-group group-id="TypeHierarchyPopupMenu" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <add-to-group group-id="CommanderPopupMenu" anchor="last"/>
+        </group>
+
+    </actions>
+
+</idea-plugin>

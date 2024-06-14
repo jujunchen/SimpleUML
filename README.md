@@ -9,3 +9,13 @@ Intellij IDEA  UML插件 SimpleUML，反编译源码
 
 # 版本修复
 2024.6.14 上传反编译源码，能跑起来，有不少问题
+
+--
+# Reason
+Since no new version of SimpleUML has been released since its 0.1 version, the original plugin has become less functional with the updates of IntelliJ IDEA. Therefore, I decided to reverse engineer the plugin's source code and release it on GitHub.
+
+# Future Plans
+I will perform some adaptive maintenance on SimpleUML, fixing existing bugs to make it compatible with the current new versions of IntelliJ IDEA. You can also fork the source code, participate in the development, or submit issues.
+
+# Version Update
+On June 14, 2024, I uploaded the reverse-engineered source code, which can run but still has many issues.

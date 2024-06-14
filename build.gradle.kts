@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("org.jetbrains.intellij") version "1.12.0"
+    id("org.jetbrains.intellij") version "1.17.0"
 }
 
 group = "net.trustx.simpleuml"
@@ -16,7 +16,7 @@ intellij {
     version.set("2022.1.4")
     type.set("IC") // Target IDE Platform
 
-    plugins.set(listOf(/* Plugin Dependencies */))
+    plugins.set(listOf("java"))
 }
 
 tasks {

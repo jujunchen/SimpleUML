@@ -87,7 +87,7 @@
 
    public static DiagramComponent createDiagramComponent(Project project, String folderURL, String name) throws UnknownDiagramTypeException {
      Document doc;
-     SequenceDiagramLoader sequenceDiagramLoader;
+     SequenceDiagramLoader sequenceDiagramLoader = null;
      try {
        doc = loadFile(folderURL, name);
      }

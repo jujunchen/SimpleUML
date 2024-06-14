@@ -75,7 +75,7 @@
 
        Figure extendedComponent = (Figure)this.classDiagramComponent.getPsiClassComponentMap().get(extendsClassname);
        if (extendedComponent != null) {
-         Connector connector;
+         Connector connector = null;
          ConnectorDecoratorExtends connectorDecorator = new ConnectorDecoratorExtends();
          connectorDecorator.setAntialiased(this.classDiagramComponent.getDiagramSettings().isUseAntialiasedConnectors());
          connectorDecorator.setFillColor(this.classDiagramComponent.getDiagramSettings().getDiagramBackgroundColor());
@@ -101,7 +101,7 @@
 
        Figure implementedComponent = (Figure)this.classDiagramComponent.getPsiClassComponentMap().get(implementsClassname);
        if (implementedComponent != null) {
-         Connector connector;
+         Connector connector = null;
          ConnectorDecoratorImplements connectorDecorator = new ConnectorDecoratorImplements();
          connectorDecorator.setAntialiased(this.classDiagramComponent.getDiagramSettings().isUseAntialiasedConnectors());
          connectorDecorator.setFillColor(this.classDiagramComponent.getDiagramSettings().getDiagramBackgroundColor());
@@ -127,7 +127,7 @@
 
        Figure fieldComponent = (Figure)this.classDiagramComponent.getPsiClassComponentMap().get(psiFieldComponent.getClassName());
        if (fieldComponent != null) {
-         Connector connector;
+         Connector connector = null;
 
          ConnectorDecoratorSettings decoratorSettings = new ConnectorDecoratorSettings(this.classDiagramComponent.getDiagramSettings().isUseAntialiasedConnectors(), this.classDiagramComponent.getDiagramSettings().getDiagramFont(), this.classDiagramComponent.getDiagramSettings().getDiagramBackgroundColor());
 
@@ -157,7 +157,7 @@
        String innerClassName = innerClassNames[i];
        Figure innerClassFigure = (Figure)this.classDiagramComponent.getPsiClassComponentMap().get(innerClassName);
        if (innerClassFigure != null) {
-         Connector connector;
+         Connector connector = null;
          ConnectorDecoratorInner connectorDecorator = new ConnectorDecoratorInner();
          connectorDecorator.setAntialiased(this.classDiagramComponent.getDiagramSettings().isUseAntialiasedConnectors());
          connectorDecorator.setFillColor(this.classDiagramComponent.getDiagramSettings().getDiagramBackgroundColor());
@@ -182,7 +182,7 @@
        PsiClassComponent classOnDiagram = classesOnDiagramIter.next();
 
        if (classOnDiagram.containsExtendsClassname(psiClassComponent.getQualifiedClassName())) {
-         Connector connector;
+         Connector connector = null;
          ConnectorDecoratorExtends connectorDecorator = new ConnectorDecoratorExtends();
          connectorDecorator.setAntialiased(this.classDiagramComponent.getDiagramSettings().isUseAntialiasedConnectors());
          connectorDecorator.setFillColor(this.classDiagramComponent.getDiagramSettings().getDiagramBackgroundColor());
@@ -204,7 +204,7 @@
        }
 
        if (classOnDiagram.containsImplementsClassname(psiClassComponent.getQualifiedClassName())) {
-         Connector connector;
+         Connector connector = null;
          ConnectorDecoratorImplements connectorDecorator = new ConnectorDecoratorImplements();
          connectorDecorator.setAntialiased(this.classDiagramComponent.getDiagramSettings().isUseAntialiasedConnectors());
          connectorDecorator.setFillColor(this.classDiagramComponent.getDiagramSettings().getDiagramBackgroundColor());
@@ -233,7 +233,7 @@
 
 
          if (fieldComponent.getClassName() != null && fieldComponent.getClassName().equals(psiClassComponent.getQualifiedClassName())) {
-           Connector connector;
+           Connector connector = null;
 
            ConnectorDecoratorSettings decoratorSettings = new ConnectorDecoratorSettings(this.classDiagramComponent.getDiagramSettings().isUseAntialiasedConnectors(), this.classDiagramComponent.getDiagramSettings().getDiagramFont(), this.classDiagramComponent.getDiagramSettings().getDiagramBackgroundColor());
 
@@ -257,7 +257,7 @@
        }
 
        if (classOnDiagram.containsInnerClassname(psiClassComponent.getQualifiedClassName())) {
-         Connector connector;
+         Connector connector = null;
          ConnectorDecoratorInner connectorDecorator = new ConnectorDecoratorInner();
          connectorDecorator.setAntialiased(this.classDiagramComponent.getDiagramSettings().isUseAntialiasedConnectors());
          connectorDecorator.setFillColor(this.classDiagramComponent.getDiagramSettings().getDiagramBackgroundColor());

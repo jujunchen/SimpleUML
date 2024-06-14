@@ -60,7 +60,7 @@
      this.diagramSettingsMap.put("Packagediagram", new PackageDiagramSettings());
 
 
-     this.smallImageIcon = new ImageIcon(getClass().getResource("/net/trustx/simpleuml/icons/simpleUML.png"));
+     this.smallImageIcon = new ImageIcon(getClass().getResource("net/trustx/simpleuml/icons/simpleUML.png"));
    }
 
 

@@ -54,7 +54,7 @@
 
    public Callstack() {
      this.objList.add(new ObjectInfo("anObject", this.currentHorizontalSeq));
-     this.callStack.push(new CallInfo(this.objList.get(0), "aMethod", this.currentVerticalSeq));
+     this.callStack.push(new CallInfo((ObjectInfo) this.objList.get(0), "aMethod", this.currentVerticalSeq));
      this.currentHorizontalSeq = 1;
      this.currentVerticalSeq = 0;
    }
@@ -199,11 +199,11 @@
      }
      else {
 
-       objInf = this.objList.get(i);
+       objInf = (ObjectInfo) this.objList.get(i);
      }
      CallInfo inf = new CallInfo(objInf, calledMethod, this.currentVerticalSeq);
 
-     CallInfo currentInf = this.callStack.peek();
+     CallInfo currentInf = (CallInfo) this.callStack.peek();
      Call call = new Call(currentInf.getObj(), inf.getObj(), inf.getMethod());
 
      this.linkList.add(call);
@@ -224,13 +224,13 @@
      }
      else {
 
-       objInf = this.objList.get(i);
+       objInf = (ObjectInfo) this.objList.get(i);
      }
      if (psiMethod != null) {
 
        CallInfo inf = new CallInfo(objInf, psiMethod.getName(), calledFrom, this.currentVerticalSeq);
 
-       CallInfo currentInf = this.callStack.peek();
+       CallInfo currentInf = (CallInfo) this.callStack.peek();
        Call call = new Call(currentInf.getObj(), inf.getObj(), psiMethod);
 
        this.linkList.add(call);
@@ -244,7 +244,7 @@
 
 
    public int addReturn() {
-     CallInfo callInfo = this.callStack.pop();
+     CallInfo callInfo = (CallInfo) this.callStack.pop();
      int addReturn = -1;
      MethodInfo mi = new MethodInfo(callInfo.getObj(), callInfo.getMethod(), callInfo.getStartingVerticalSeq(), this.currentVerticalSeq);
 
@@ -252,7 +252,7 @@
 
      if (!this.callStack.isEmpty()) {
 
-       CallInfo currentInf = this.callStack.peek();
+       CallInfo currentInf = (CallInfo) this.callStack.peek();
        CallReturn call = new CallReturn(callInfo.getObj(), currentInf.getObj(), currentInf.getPsiLocation());
        this.linkList.add(call);
        addReturn = this.currentVerticalSeq;
@@ -278,7 +278,7 @@
    private ObjectInfo findSeq(int seq) {
      for (int i = 0; i < this.objList.size(); i++) {
 
-       ObjectInfo call = this.objList.get(i);
+       ObjectInfo call = (ObjectInfo) this.objList.get(i);
        if (findMethod(seq, call.getMethods()) != null) {
          return call;
        }
@@ -293,7 +293,7 @@
    private CallInfo findFromStack(int seq) {
      for (int j = 0; j < this.callStack.size(); j++) {
 
-       CallInfo call = this.callStack.get(j);
+       CallInfo call = (CallInfo) this.callStack.get(j);
        if (call.getStartingSeq() == this.currentSeq && !call.getMethod().equals("aMethod"))
          return call;
      }

@@ -56,7 +56,7 @@
        for (int i = 0; i < this.wText.size(); i++) {
          
          yline = (paintTextR.y + this.fontMetrics.getAscent()) * (i + 1);
-         g.drawString(this.wText.get(i), paintTextR.x + 3, yline);
+         g.drawString((String) this.wText.get(i), paintTextR.x + 3, yline);
        } 
      } 
    }

@@ -99,7 +99,7 @@
    public void highLight(int sequence) {
      if (this.highLight != null && this.highLight.getSeq() != sequence)
        this.highLight.clearHighlight(); 
-     this.highLight = this.links.get(sequence);
+     this.highLight = (DisplayLink) this.links.get(sequence);
      this.highLight.setHighlight();
      
      repaint();
@@ -266,7 +266,7 @@
      int maxX = 200;
      for (int i = 0; i < numberOfClasses; i++) {
        
-       DisplayObjectInfo obj = this.objectLifelines.get(i);
+       DisplayObjectInfo obj = (DisplayObjectInfo) this.objectLifelines.get(i);
        
        layoutHorizontalCalls(obj, i, numberOfClasses);
        maxX = obj.getX() + obj.getWidth() + this.inset;
@@ -317,7 +317,7 @@
            
            continue;
          } 
-         availableGap = obj.calcCurrentGap(this.objectLifelines.get(i + 1), call.getSeq());
+         availableGap = obj.calcCurrentGap((DisplayObjectInfo) this.objectLifelines.get(i + 1), call.getSeq());
  
        
        }
@@ -351,7 +351,7 @@
    private int layOutVerticalLines(int numberOfClasses, int x, int y, Graphics2D g2) {
      for (int i = 0; i < numberOfClasses; i++) {
        
-       DisplayObjectInfo obj = this.objectLifelines.get(i);
+       DisplayObjectInfo obj = (DisplayObjectInfo) this.objectLifelines.get(i);
        obj.setX(x);
        obj.setY(y);
        obj.initOne(g2);

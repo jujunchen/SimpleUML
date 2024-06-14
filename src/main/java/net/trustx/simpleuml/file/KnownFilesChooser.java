@@ -158,7 +158,7 @@
              if (KnownFilesChooser.this.fileList.getSelectedIndex() != -1) {
 
                KnownFilesChooser.this.tree.getSelectionModel().clearSelection();
-               KnownFilesChooser.this.selectedFile = KnownFilesChooser.this.fileList.getSelectedValue();
+               KnownFilesChooser.this.selectedFile = (VirtualFile) KnownFilesChooser.this.fileList.getSelectedValue();
                KnownFilesChooser.this.setOKActionEnabled(true);
              }
            }
@@ -170,7 +170,7 @@
            {
              if (e.getClickCount() == 2 && KnownFilesChooser.this.fileList.getSelectedIndex() != -1) {
 
-               KnownFilesChooser.this.selectedFile = KnownFilesChooser.this.fileList.getSelectedValue();
+               KnownFilesChooser.this.selectedFile = (VirtualFile) KnownFilesChooser.this.fileList.getSelectedValue();
                KnownFilesChooser.this.close(0);
              }
            }
@@ -225,7 +225,7 @@
          {
            if (KnownFilesChooser.this.fileList.getSelectedIndex() != -1) {
 
-             VirtualFile vf = KnownFilesChooser.this.fileList.getSelectedValue();
+             VirtualFile vf = (VirtualFile) KnownFilesChooser.this.fileList.getSelectedValue();
              ((FileListModel)KnownFilesChooser.this.fileList.getModel()).removeVirtualFile(KnownFilesChooser.this.fileList.getSelectedIndex());
              UMLToolWindowPlugin.getUMLToolWindowPlugin(KnownFilesChooser.this.project).getUMLFileManager().removeURL(vf.getUrl());
              KnownFilesChooser.this.fileList.clearSelection();

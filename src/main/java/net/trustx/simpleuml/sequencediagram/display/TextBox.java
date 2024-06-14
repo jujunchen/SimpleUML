@@ -160,7 +160,7 @@
    public String getLine(int lineNumber) {
      String ret = null;
      if (this.lines != null && this.lines.size() > lineNumber) {
-       ret = this.lines.get(lineNumber);
+       ret = (String) this.lines.get(lineNumber);
      } else {
        ret = this.prefix + this.text;
      } 

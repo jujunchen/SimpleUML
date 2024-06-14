@@ -190,7 +190,7 @@
      }
      else if (e.getComponent() instanceof ActionContributor) {
 
-       actionContributors.add(e.getComponent());
+       actionContributors.add((Connector) e.getComponent());
      }
 
      return (ActionContributor[])actionContributors.toArray((Object[])new ActionContributor[actionContributors.size()]);

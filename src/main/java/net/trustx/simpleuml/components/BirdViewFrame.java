@@ -46,8 +46,8 @@
  
    
    private void init() {
-     Point location = DimensionService.getInstance().getLocation(getClass().getName());
-     Dimension size = DimensionService.getInstance().getSize(getClass().getName());
+     Point location = DimensionService.getInstance().getLocation(getClass().getName(), birdviewable.getProject());
+     Dimension size = DimensionService.getInstance().getSize(getClass().getName(), birdviewable.getProject());
      
      if (location != null)
      {
@@ -109,8 +109,8 @@
      if (this.birdviewable != null) {
        
        this.birdviewable.removeChangeListener(this);
-       DimensionService.getInstance().setLocation(getClass().getName(), getLocation());
-       DimensionService.getInstance().setSize(getClass().getName(), getSize());
+       DimensionService.getInstance().setLocation(getClass().getName(), getLocation(), birdviewable.getProject());
+       DimensionService.getInstance().setSize(getClass().getName(), getSize(), birdviewable.getProject());
        UMLToolWindowPlugin.getUMLToolWindowPlugin(this.previewPanel.getPreviewable().getProject()).setBirdViewShouldBeVisible(!requestedByUser);
      } 
      super.dispose();

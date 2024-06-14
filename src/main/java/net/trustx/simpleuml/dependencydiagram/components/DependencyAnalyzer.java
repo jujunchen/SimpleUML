@@ -322,7 +322,7 @@
    
    private HashSet findReferences(PsiElement psiElement) {
      HashSet classesSet = new HashSet();
-     PsiSearchHelper psh = PsiManager.getInstance(this.project).getSearchHelper();
+//     PsiSearchHelper psh = PsiManager.getInstance(this.project).getSearchHelper();
      Collection<PsiReference> references = ReferencesSearch.search(psiElement, (SearchScope)GlobalSearchScope.allScope(this.project), false).findAll();
      for (Iterator<PsiReference> iterator = references.iterator(); iterator.hasNext(); ) {
        
@@ -347,7 +347,7 @@
      this.progressIndicator.setText("Searching for directly extending classes...");
      PsiResolveHelper psh = JavaPsiFacade.getInstance(this.project).getResolveHelper();
      
-     PsiClass[] psiClasses = (PsiClass[])ClassInheritorsSearch.search(this.psiClass, false).toArray((Object[])new PsiClass[0]);
+     PsiClass[] psiClasses = ClassInheritorsSearch.search(this.psiClass, false).toArray(new PsiClass[0]);
  
      
      this.extendingClasses = new HashSet();

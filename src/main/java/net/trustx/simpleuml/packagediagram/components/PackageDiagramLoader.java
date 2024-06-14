@@ -268,7 +268,7 @@
              ProgressIndicator progressWindow = ProgressManager.getInstance().getProgressIndicator();
              for (int i = 0; i < helperList.size(); i++) {
                
-               final PackageDiagramHelper helper = helperList.get(i);
+               final PackageDiagramHelper helper = (PackageDiagramHelper) helperList.get(i);
                progressWindow.setText("Loading " + helper.getPackageName());
                progressWindow.setFraction(i / helperList.size());
  

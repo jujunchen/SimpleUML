@@ -25,6 +25,7 @@
  import net.trustx.simpleuml.sequencediagram.util.CallInfo;
  import net.trustx.simpleuml.sequencediagram.util.Callstack;
  import net.trustx.simpleuml.sequencediagram.util.PsiClassUtil;
+ import org.jdom.Content;
  import org.jdom.Element;
 
 
@@ -271,7 +272,7 @@
        Link currentLink = it.next();
        for (int i = 0; i < currentStack.getLinks().size(); i++) {
 
-         Link checkLink = currentStack.getLinks().get(i);
+         Link checkLink = (Link) currentStack.getLinks().get(i);
          if (currentLink.getName().equals(checkLink.getName()) && currentLink.getTo().getName().equals(checkLink.getTo().getName())) {
 
 
@@ -301,7 +302,7 @@
        CallInfo info = it.next();
        CallInfo newInfo = null;
        if (currentStack.getCallStack().size() > newStackPosition) {
-         newInfo = currentStack.getCallStack().get(newStackPosition);
+         newInfo = (CallInfo) currentStack.getCallStack().get(newStackPosition);
 
 
          if (methodsEqual(info.getMethod(), newInfo.getMethod())) {
@@ -317,7 +318,7 @@
            }
 
 
-           if (sourceStack.size() < currentStack.getCallStack().size() && methodsEqual(info.getMethod(), (newInfo = currentStack.getCallStack().get(newStackPosition + 1)).getMethod())) {
+           if (sourceStack.size() < currentStack.getCallStack().size() && methodsEqual(info.getMethod(), (newInfo = (CallInfo) currentStack.getCallStack().get(newStackPosition + 1)).getMethod())) {
 
 
 
@@ -469,7 +470,7 @@
        return null;
      if (sequence < this.persistentStack.getLinks().size()) {
 
-       Link l = this.persistentStack.getLinks().get(sequence);
+       Link l = (Link) this.persistentStack.getLinks().get(sequence);
        psId = l.getPsiElement();
      }
      return psId;
@@ -498,7 +499,7 @@
    public Link getLink(int sequence) {
      Link l = null;
      if (this.persistentStack.getLinks().size() > sequence)
-       l = this.persistentStack.getLinks().get(sequence);
+       l = (Link) this.persistentStack.getLinks().get(sequence);
      return l;
    }
 
@@ -535,13 +536,13 @@
 
 
 
-   private Element getMethodArgs(List<Element> methodInfo) {
+   private Element getMethodArgs(List<Content> methodInfo) {
      Element methodArgs = null;
      for (int k = 0; k < methodInfo.size(); k++) {
 
        if (methodInfo.get(k) instanceof Element) {
 
-         methodArgs = methodInfo.get(k);
+         methodArgs = (Element) methodInfo.get(k);
          if (methodArgs.getName().equals("Arguments"))
            break;
        }

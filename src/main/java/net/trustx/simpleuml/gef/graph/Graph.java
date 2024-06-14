@@ -175,7 +175,7 @@
 
        Graph subGraph = new Graph();
        DFS.FindAllVerticesDFS dfs = new DFS.FindAllVerticesDFS();
-       List verticesList = (List)dfs.execute(this, this.vertices.iterator().next(), "null");
+       List verticesList = (List)dfs.execute(this, (Vertex) this.vertices.iterator().next(), "null");
        for (Iterator<Vertex> iterator = verticesList.iterator(); iterator.hasNext(); ) {
 
          Vertex vertex = iterator.next();

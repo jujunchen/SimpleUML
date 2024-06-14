@@ -67,7 +67,7 @@
      int possible = -1;
      for (int i = 0; i < this.methods.size(); i++) {
 
-       MethodInfo otherMethod = this.methods.get(i);
+       MethodInfo otherMethod = (MethodInfo) this.methods.get(i);
        if (otherMethod.getStartSeq() > mi.getStartSeq()) {
 
          possible = i;

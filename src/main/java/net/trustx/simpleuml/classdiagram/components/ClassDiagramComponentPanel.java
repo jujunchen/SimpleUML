@@ -108,7 +108,7 @@
 
      RefactoringElementListenerProvider provider = new ClassDiagramRefactoringElementListenerProvider(classDiagramComponent);
 
-     RefactoringListenerManager.getInstance(getProject()).addListenerProvider(provider);
+//     RefactoringListenerManager.getInstance(getProject()).addListenerProvider(provider);
    }
 
 
